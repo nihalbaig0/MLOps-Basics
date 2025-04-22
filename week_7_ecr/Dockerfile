@@ -17,13 +17,13 @@ RUN pip install "dvc[s3]"
 RUN pip install -r requirements_inference.txt
 
 # initialise dvc
-RUN dvc init --no-scm
+RUN dvc init --no-scm -f
 # configuring remote server in dvc
-RUN dvc remote add -d model-store s3://models-dvc/trained_models/
+RUN dvc remote add -d storage s3://sentiment-intelsense/dvc-test
 
 RUN cat .dvc/config
 # pulling the trained model
-RUN dvc pull dvcfiles/trained_model.dvc
+RUN dvc pull 
 
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8

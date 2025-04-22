@@ -1,0 +1,7 @@
+[core]
+    no_scm = True
+    remote = storage
+['remote "model-store"']
+    url = s3://sentiment-intelsense/ml-models/
+['remote "storage"']
+    url = s3://sentiment-intelsense/dvc-test
